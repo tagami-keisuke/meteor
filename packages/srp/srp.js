@@ -81,6 +81,7 @@
     self.HAMK = HAMK;
 
     return {
+      A: self.Astr, // XXX for the server to reidentify us
       M: M
     };
   };
@@ -152,6 +153,34 @@
     return {
       HAMK: HAMK
     };
+  };
+
+  // XXX these are wrong!
+
+  Meteor._XXX_server.prototype.serialize = function () {
+    var self = this;
+
+    return {
+      verifier: self.verifier,
+      A: self.Astr,
+      b: self.b.toString(16),
+      B: self.Bstr
+    };
+  };
+
+  // class method
+  Meteor._XXX_server.unserialize = function (data) {
+    var self = new Meteor._XXX_server(data.verifier);
+
+    console.log(data);
+
+    self.Astr = data.A;
+    self.A = new Meteor._BigInteger(data.A, 16);
+    self.Bstr = data.B;
+    self.B = new Meteor._BigInteger(data.B, 16);
+    self.b = new Meteor._BigInteger(data.b, 16);
+
+    return self;
   };
 
 })();
