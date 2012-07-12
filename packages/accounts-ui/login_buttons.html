@@ -32,7 +32,12 @@
   {{/each}}
 </template>
 
+<!-- xcxc rename, collapsed dropdown? -->
 <template name="loginButtonsServicesDropdown">
-  Login
-xcxc
+  <a class="login-link">
+    Login
+    <div class="login-dropdown">
+      {{> loginButtonsServicesRow}}
+    </div>
+  </a>
 </template>
