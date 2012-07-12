@@ -32,6 +32,10 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -o-border-radius: 3px;
+
+    /* xcxc only in dropdown mode */
+    width: 150px;
+    margin-bottom: 4px;
 }
 
 #login-buttons .login-image {
@@ -45,10 +49,21 @@
     color: red;
 }
 
-#login-buttons .login-link {
-    text-decoration: underline;
-    cursor: pointer;
+#login-buttons .login-link-and-dropdown {
     position: relative;
+}
+
+#login-buttons .login-link-text {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#login-buttons .login-close-text {
+    cursor: pointer;
+    text-decoration: underline;
+    float: right;
+    position: relative;
+    left: 1px; /* = #login-buttons.border-width */
 }
 
 #login-buttons .login-dropdown {
@@ -56,7 +71,16 @@
     border: 1px solid black;
     z-index: 1000;
     width: 180px;
-    height: 200px;
     right: 0px;
-    background: white;
+    top: 0px;
+    xcxcbackground: white;
+
+    margin-top: -5px;
+    padding-top: 4px; /* = border-width - margin-top */
+/*
+    margin-right: -5px; /* these two must be equal */
+/*    padding-right: 5px;
+*/
+
+    padding-bottom: 5px;
 }

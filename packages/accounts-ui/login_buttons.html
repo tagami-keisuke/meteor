@@ -34,10 +34,13 @@
 
 <!-- xcxc rename, collapsed dropdown? -->
 <template name="loginButtonsServicesDropdown">
-  <a class="login-link">
-    Login
+  <div class="login-link-and-dropdown">
+    <a class="login-link-text">Login</a>
+    {{#if dropdownVisible}}
     <div class="login-dropdown">
+      <a class="login-close-text">Login</a>
       {{> loginButtonsServicesRow}}
     </div>
-  </a>
+    {{/if}}
+  </div>
 </template>

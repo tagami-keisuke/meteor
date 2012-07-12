@@ -69,4 +69,18 @@
   // xcxc this is bad.
   Template.loginButtonsServicesRow.services = Template.loginButtons.services;
 
+  var DROPDOWN_VISIBLE_KEY = 'Meteor.loginButtons.dropdownVisible';
+
+  Template.loginButtonsServicesDropdown.events = {
+    'click .login-link-text': function () {
+      Session.set(DROPDOWN_VISIBLE_KEY, true);
+    },
+    'click .login-close-text': function () {
+      Session.set(DROPDOWN_VISIBLE_KEY, false);
+    }
+  };
+
+  Template.loginButtonsServicesDropdown.dropdownVisible = function () {
+    return Session.get(DROPDOWN_VISIBLE_KEY);
+  };
 })();
