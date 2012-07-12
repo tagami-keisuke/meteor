@@ -1,5 +1,11 @@
 (function () {
 
+  // should we show a dropdown rather than a row of buttons
+  Template.loginButtons.dropdown = function () {
+    var services = Template.loginButtons.services();
+    return (_.contains(services, 'password') || services.length > 2);
+  };
+
   Template.loginButtons.events = {
     'click #login-buttons-Facebook': function () {
       try {
